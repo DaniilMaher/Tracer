@@ -8,5 +8,25 @@ namespace Tracer
 {
     class TracedMethod
     {
+        private String name;
+        private String className;
+        private long workTime;
+        private List<TracedMethod> nestedMethods;
+
+        public void StartTrace()
+        {
+
+        }
+
+        public void StopTrace()
+        {
+
+        }
+
+        public void AddNestedMethod (TracedMethod method)
+        {
+
+        }
+
     }
 }
