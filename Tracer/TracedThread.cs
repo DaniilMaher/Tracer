@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tracer
 {
-    class TracedThread
+    public class TracedThread
     {
         private List<TracedMethod> methods;
         private Stack<TracedMethod> methodsCallStack;
@@ -22,6 +22,10 @@ namespace Tracer
             if (methodsCallStack.Count == 0)
             {
                 methods.Add(method);
+            }
+            else
+            {
+                methodsCallStack.Peek().AddNestedMethod(method);
             }
             methodsCallStack.Push(method);
             method.StartTrace();

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Tracer
 {
-    class TracedMethod
+    public class TracedMethod
     {
         private String name;
         private String className;
