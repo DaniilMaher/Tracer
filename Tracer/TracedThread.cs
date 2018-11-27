@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
@@ -37,14 +34,14 @@ namespace Tracer
 
         public TracedThread() { }
 
-        public TracedThread(int id)
+        internal TracedThread(int id)
         {
             methods = new List<TracedMethod>();
             methodsCallStack = new Stack<TracedMethod>();
             ThreadId = id;
         }
 
-        private long CalculateTotalMethodsWorkTime()
+        internal long CalculateTotalMethodsWorkTime()
         {
             long time = 0;
             foreach (TracedMethod method in methods)
@@ -54,7 +51,7 @@ namespace Tracer
             return time;
         }
 
-        public void StartTraceMethod(TracedMethod method)
+        internal void StartTraceMethod(TracedMethod method)
         {
             if (methodsCallStack.Count == 0)
             {
@@ -68,7 +65,7 @@ namespace Tracer
             method.StartTrace();
         }
 
-        public void StopTraceMethod()
+        internal void StopTraceMethod()
         {
             methodsCallStack.Pop().StopTrace();
         }

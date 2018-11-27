@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
@@ -47,7 +44,7 @@ namespace Tracer
 
         public TracedMethod () { }
 
-        public TracedMethod (String name, String className)
+        internal TracedMethod (String name, String className)
         {
             Name = name;
             ClassName = className;
@@ -55,23 +52,23 @@ namespace Tracer
             stopwatch = new Stopwatch();
         }
 
-        public long GetWorkTime()
+        internal long GetWorkTime()
         {
             return stopwatch.ElapsedMilliseconds;
         }
 
-        public void StartTrace()
+        internal void StartTrace()
         {
             stopwatch.Start();
             
         }
 
-        public void StopTrace()
+        internal void StopTrace()
         {
             stopwatch.Stop();
         }
 
-        public void AddNestedMethod (TracedMethod method)
+        internal void AddNestedMethod (TracedMethod method)
         {
             nestedMethods.Add(method);
         }

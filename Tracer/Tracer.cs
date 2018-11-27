@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Tracer
 {
@@ -16,11 +12,6 @@ namespace Tracer
         public Tracer()
         {
             traceResult = new TraceResult();
-        }
-
-        public TraceResult GetTraceResult()
-        {
-            return traceResult;
         }
 
         public void StartTrace()
@@ -39,6 +30,11 @@ namespace Tracer
             int threadId = Thread.CurrentThread.ManagedThreadId;
             TracedThread thread = traceResult.GetThreadTracer(threadId);
             thread.StopTraceMethod();
+        }
+
+        public TraceResult GetTraceResult()
+        {
+            return traceResult;
         }
     }
 }

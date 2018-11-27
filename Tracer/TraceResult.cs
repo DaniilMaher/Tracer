@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Concurrent;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
@@ -26,7 +22,7 @@ namespace Tracer
             threads = new ConcurrentDictionary<int, TracedThread>();
         }
 
-        public TracedThread GetThreadTracer(int threadId)
+        internal TracedThread GetThreadTracer(int threadId)
         {
             TracedThread thread;
             if (!threads.TryGetValue(threadId, out thread))
