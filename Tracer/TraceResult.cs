@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace Tracer
 {
-    [XmlRoot(ElementName = "root")]
+    [XmlRoot(ElementName = "root"), DataContract(Name = "result")]
     public class TraceResult
-    {
+    {   
         private ConcurrentDictionary<int, TracedThread> threads;
 
-        [XmlElement(ElementName = "thread")]
+        [XmlElement(ElementName = "thread"), DataMember(Name = "threads")]
         public List<TracedThread> ThreadResults
         {
             get => new List<TracedThread>(new SortedDictionary<int, TracedThread>(threads).Values);

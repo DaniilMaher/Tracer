@@ -5,29 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
+
 
 namespace Tracer
 {
-    [XmlRoot(ElementName = "method")]
+    [XmlRoot(ElementName = "method"), DataContract(Name = "method")]
     public class TracedMethod
     {
         private Stopwatch stopwatch;
 
-        [XmlAttribute(AttributeName = "name")]
+        [XmlAttribute(AttributeName = "name"), DataMember(Name = "name", Order = 0)]
         public String Name
         {
             get;
             set;
         }
 
-        [XmlAttribute(AttributeName = "time")]
+        [XmlAttribute(AttributeName = "time"), DataMember(Name = "time", Order = 2)]
         public string StringWorkTime
         {
             get => String.Format("{0} ms", stopwatch.ElapsedMilliseconds);
             set { }
         }
 
-        [XmlAttribute(AttributeName = "class")]
+        [XmlAttribute(AttributeName = "class"), DataMember(Name = "class", Order = 1)]
         public String ClassName
         {
             get;
@@ -36,7 +38,7 @@ namespace Tracer
 
         private List<TracedMethod> nestedMethods;
 
-        [XmlElement(ElementName = "method")]
+        [XmlElement(ElementName = "method"), DataMember(Name = "methods", Order = 3)]
         public List<TracedMethod> NestedMethods
         {
             get => new List<TracedMethod>(nestedMethods);

@@ -4,30 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 namespace Tracer
 {
-    [XmlRoot(ElementName = "thread")]
+    [XmlRoot(ElementName = "thread"), DataContract(Name = "thread")]
     public class TracedThread
     {
         private List<TracedMethod> methods;
         private Stack<TracedMethod> methodsCallStack;
 
-        [XmlAttribute(AttributeName = "id")]
+        [XmlAttribute(AttributeName = "id"), DataMember(Name = "id", Order = 0)]
         public int ThreadId
         {
             get;
             set;
         }
 
-        [XmlAttribute(AttributeName = "time")]
+        [XmlAttribute(AttributeName = "time"), DataMember(Name = "time", Order = 1)]
         public string StringWorkTime
         {
             get => String.Format("{0} ms", CalculateTotalMethodsWorkTime());
             set { }
         }
 
-        [XmlElement(ElementName = "method")]
+        [XmlElement(ElementName = "method"), DataMember(Name = "methods", Order = 2)]
         public List<TracedMethod> NestedMethods
         {
             get => new List<TracedMethod>(methods);

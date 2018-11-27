@@ -18,9 +18,11 @@ namespace ConsoleTracer
             foo.MyMethod();
             TraceResult traceResult = tracer.GetTraceResult();
             ITraceResultSerializer serializer = new TraceResultXMLSerializer();
+            ITraceResultSerializer jsonSerializer = new TraceResultJsonSerializer();
             using (Stream outputStream = Console.OpenStandardOutput())
             {
                 serializer.Serialize(traceResult, outputStream);
+                jsonSerializer.Serialize(traceResult, outputStream);
             }
         }
     }
