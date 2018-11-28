@@ -50,6 +50,7 @@
     <Compile Include="Tracer.cs" />
     <Compile Include="TraceResult.cs" />
     <Compile Include="TraceResultJsonSerializer.cs" />
+    <Compile Include="TraceResultWriter.cs" />
     <Compile Include="TraceResultXMLSerializer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

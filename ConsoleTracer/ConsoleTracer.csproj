@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{030F6BAC-B6FF-48E6-8F89-CDD4D01795EE}</ProjectGuid>
+    <ProjectGuid>{F58E8043-3C8E-4724-983B-5A03663E26BC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp1</RootNamespace>
-    <AssemblyName>ConsoleApp1</AssemblyName>
+    <RootNamespace>ConsoleTracer</RootNamespace>
+    <AssemblyName>ConsoleTracer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,15 +45,15 @@
   <ItemGroup>
     <Compile Include="Bar.cs" />
     <Compile Include="Foo.cs" />
-    <Compile Include="Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tracer\Tracer.csproj">
-      <Project>{B1133561-5D88-4581-91CE-81EEB5949CCC}</Project>
+      <Project>{b1133561-5d88-4581-91ce-81eeb5949ccc}</Project>
       <Name>Tracer</Name>
     </ProjectReference>
   </ItemGroup>

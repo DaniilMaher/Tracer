@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tracer;
+using System.Threading;
 
 namespace ConsoleTracer
 {
@@ -19,7 +16,7 @@ namespace ConsoleTracer
         public void InnerMethod()
         {
             _tracer.StartTrace();
-        
+            Thread.Sleep(new Random().Next(50, 500));
             _tracer.StopTrace();
         }
     }
