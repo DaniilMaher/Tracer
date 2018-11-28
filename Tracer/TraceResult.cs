@@ -11,7 +11,7 @@ namespace Tracer
         private ConcurrentDictionary<int, TracedThread> threads;
 
         [XmlElement(ElementName = "thread"), DataMember(Name = "threads")]
-        public List<TracedThread> ThreadResults
+        public List<TracedThread> Threads
         {
             get => new List<TracedThread>(new SortedDictionary<int, TracedThread>(threads).Values);
             private set { }

@@ -26,7 +26,7 @@ namespace Tracer
         }
 
         [XmlElement(ElementName = "method"), DataMember(Name = "methods", Order = 2)]
-        public List<TracedMethod> NestedMethods
+        public List<TracedMethod> Methods
         {
             get => new List<TracedMethod>(methods);
             set { }
